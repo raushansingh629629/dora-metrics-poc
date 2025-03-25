@@ -4,10 +4,10 @@ export default function Home() {
   return (
     <>
       <Typography variant="h4" gutterBottom>
-        DORA Metrics Dashboard
+        Welcome to DORA Metrics Dashboard
       </Typography>
       <Typography paragraph>
-        Select "Analytics" from the sidebar to view metrics.
+        Select "Analytics" from the sidebar to view your deployment metrics.
       </Typography>
     </>
   );

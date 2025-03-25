@@ -7,20 +7,8 @@ export const fetchStaticData = (): DoraMetric[] => [
   { id: 3, repo: 'mobile', deploymentFrequency: 7, leadTime: 1, changeFailRate: 5, restoreTime: 0.5 },
 ];
 
-// API functions (for production)
+// Ready for API integration
 export const fetchGitHubData = async (): Promise<DoraMetric[]> => {
-  /* Example:
-  const response = await axios.get<GitHubDeployment[]>('https://api.github.com/repos/org/repo/deployments');
-  return transformToDoraMetrics(response.data);
-  */
-  return [];
-};
-
-interface JenkinsBuild {
-  // Define Jenkins API response structure
-}
-
-export const fetchJenkinsData = async (): Promise<DoraMetric[]> => {
-  /* Jenkins API integration */
+  // Implementation for real API calls
   return [];
 };

@@ -6,5 +6,3 @@ export interface DoraMetric {
     changeFailRate: number;
     restoreTime: number;
   }
-  
-  export type PageType = 'home' | 'analytics';

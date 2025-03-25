@@ -1,12 +1,9 @@
-import { Box, Drawer, List, IconButton } from '@mui/material';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import { Drawer, List, Box, IconButton, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import HomeIcon from '@mui/icons-material/Home';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { PageType } from '../api/types';
+import { useTheme } from '../context/ThemeContext';
+import { PageType } from '../App';
 
 interface DrawerComponentProps {
   currentPage: PageType;
@@ -16,41 +13,41 @@ interface DrawerComponentProps {
 }
 
 export default function DrawerComponent({ 
-  currentPage,
-  setCurrentPage,
-  drawerOpen,
-  toggleDrawer
+  currentPage, 
+  setCurrentPage, 
+  drawerOpen, 
+  toggleDrawer 
 }: DrawerComponentProps) {
+  const { theme } = useTheme();
+
   return (
-<Drawer
-  variant="permanent"
-  open={drawerOpen}
-  sx={{
-    width: drawerOpen ? 240 : 56,
-    //minWidth: 300,
-    flexShrink: 0,
-    '& .MuiDrawer-paper': {
-      width: drawerOpen ? 240 : 56,
-      boxSizing: 'border-box',
-      position: 'relative',
-      whiteSpace: 'nowrap',
-      transition: (theme) => theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      overflowX: 'hidden',
-    },
-  }}
->
+    <Drawer
+      variant="permanent"
+      open={drawerOpen}
+      sx={{
+        width: drawerOpen ? 240 : 56,
+        flexShrink: 0,
+        '& .MuiDrawer-paper': {
+          width: drawerOpen ? 240 : 56,
+          boxSizing: 'border-box',
+          backgroundColor: theme.palette.background.paper,
+          transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+          }),
+          overflowX: 'hidden',
+        },
+      }}
+    >
       <Box sx={{ 
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        padding: '8px 8px 8px 16px',
-        minHeight: '64px'
+        p: 1,
+        height: 64
       }}>
         <IconButton onClick={toggleDrawer}>
-          {drawerOpen ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          {drawerOpen ? <ChevronLeft /> : <ChevronRight />}
         </IconButton>
       </Box>
       

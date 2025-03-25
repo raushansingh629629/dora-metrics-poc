@@ -1,5 +1,5 @@
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import { DoraMetric } from '../api/types';
 
 const columns: GridColDef[] = [
@@ -15,9 +15,30 @@ interface MetricsTableProps {
 }
 
 export default function MetricsTable({ data }: MetricsTableProps) {
+  const theme = useTheme();
+
   return (
-    <Box sx={{ height: 400, width: '100%', mb: 4 }}>
-      <Typography variant="h6" gutterBottom>
+    <Box sx={{ 
+      height: 400, 
+      width: '100%', 
+      mb: 4,
+      '& .MuiDataGrid-root': {
+        borderColor: theme.palette.divider,
+        color: theme.palette.text.primary,
+      },
+      '& .MuiDataGrid-cell': {
+        borderBottomColor: theme.palette.divider,
+      },
+      '& .MuiDataGrid-columnHeaders': {
+        backgroundColor: theme.palette.background.paper,
+        borderBottomColor: theme.palette.divider,
+        color: theme.palette.text.primary,
+      },
+      '& .MuiDataGrid-footerContainer': {
+        borderTopColor: theme.palette.divider,
+      },
+    }}>
+      <Typography variant="h6" gutterBottom sx={{ color: theme.palette.text.primary }}>
         DORA Metrics Overview
       </Typography>
       <DataGrid
