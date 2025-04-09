@@ -19,6 +19,7 @@ import {
   DialogActions
 } from '@mui/material';
 import { fetchReposWithManyBranches, getExactBranchCount } from '../api/githubService';
+import { RepoWithBranches } from '../interfaces/interface';
 
 const columns: GridColDef[] = [
   { 

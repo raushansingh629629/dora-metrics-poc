@@ -5,6 +5,7 @@ import MetricsTable from '../components/MetricsTable';
 import { fetchStaticData } from '../api/doraData';
 import { DoraMetric } from '../api/types';
 import KoyaRepos from '../components/KoyaRepos';
+import RepoBranchAnalysis from '../components/RepoBranchAnalysis';
 
 export default function Analytics() {
   const [data, setData] = useState<DoraMetric[]>([]);
@@ -15,6 +16,7 @@ export default function Analytics() {
 
   return (
     <Box>
+    <RepoBranchAnalysis />
       <KoyaRepos />  
       <MetricsTable data={data} />
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
